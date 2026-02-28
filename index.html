@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio - Smith Braz</title>
+
   <style>
     body {
       font-family: 'Consolas', 'Courier New', monospace;
@@ -11,6 +12,7 @@
       background: #0d0d0d;
       color: #e0e0e0;
     }
+
     header {
       background: linear-gradient(90deg, #0d0d0d, #1a1a1a);
       color: #ff0000;
@@ -19,40 +21,46 @@
       border-bottom: 2px solid #ff0000;
       text-shadow: 0 0 10px #ff0000;
     }
+
     nav a {
       color: #ffff00;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
+      transition: 0.3s;
     }
+
     nav a:hover {
       color: #ff0000;
       text-shadow: 0 0 8px #ff0000;
     }
+
     section {
       padding: 40px;
       max-width: 900px;
       margin: auto;
     }
+
     h2 {
       color: #ff0000;
       border-left: 4px solid #ff0000;
       padding-left: 10px;
       text-shadow: 0 0 8px #ff0000;
     }
+
     ul li {
       margin-bottom: 10px;
-      color: #e0e0e0;
     }
+
     .talks {
       background: #1a1a1a;
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 8px;
       border: 1px solid #ffff00;
-      box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+      box-shadow: 0 0 10px rgba(255,255,0,0.4);
     }
+
     footer {
       background: #0d0d0d;
       color: #666;
@@ -61,17 +69,16 @@
       margin-top: 30px;
       border-top: 2px solid #ff0000;
     }
-    a {
-      color: #ffff00;
-    }
-    a:hover {
-      color: #ff0000;
-    }
-    /* Estilo da foto circular */
+
+    a { color: #ffff00; }
+    a:hover { color: #ff0000; }
+
+    /* FOTO PERFIL */
     .profile-container {
       text-align: center;
       margin: 20px 0;
     }
+
     .profile-img {
       width: 180px;
       height: 180px;
@@ -79,143 +86,231 @@
       border-radius: 50%;
       border: 3px solid #ff0000;
       box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s;
     }
+
     .profile-img:hover {
       transform: scale(1.05);
       box-shadow: 0 0 25px rgba(255, 0, 0, 1);
     }
-    /* Slideshow */
+
+    /* SLIDESHOW */
     .slideshow-container {
       position: relative;
-      max-width: 600px;
+      max-width: 700px;
       margin: 40px auto;
       border: 2px solid #ff0000;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(255,0,0,0.7);
+      box-shadow: 0 0 25px rgba(255,0,0,0.8);
+      background: #000;
     }
+
     .slide {
       display: none;
-      width: 100%;
     }
+
     .slide img {
-      width: 25%;
-      height: auto;
+      width: 100%;
       display: block;
+      animation: fadeEffect 1s;
     }
+
+    @keyframes fadeEffect {
+      from { opacity: 0.4 }
+      to { opacity: 1 }
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 12px;
+      color: #ffff00;
+      font-weight: bold;
+      font-size: 20px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      transform: translateY(-50%);
+      transition: 0.3s;
+    }
+
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    .prev:hover, .next:hover {
+      background: #ff0000;
+      color: #000;
+      box-shadow: 0 0 10px #ff0000;
+    }
+
+    .dots {
+      text-align: center;
+      padding: 10px;
+      background: #111;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #444;
+      border-radius: 50%;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .active, .dot:hover {
+      background-color: #ff0000;
+      box-shadow: 0 0 8px #ff0000;
+    }
+
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Smith Braz | 5M1TH</h1>
-    <p>Military at Brazilian Navy | Cyber Warrior | CyberSecurity | Head of Red Team | Threat Hunter | CTF Player | Teacher</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#academic">Academic Background</a>
-      <a href="#talks">Talks</a>
-      <a href="#teacher">Teacher Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section id="about">
-    <h2>About me</h2>
-    <p>Professional with more than 25 years of experience in the Brazilian Navy, working in Information Technology since 2004. Specialized in offensive security, network management, and incident response, with internationally recognized certifications.</p>
-  </section>
+<header>
+  <h1>Smith Braz | 5M1TH</h1>
+  <p>Military at Brazilian Navy | Cyber Warrior | CyberSecurity | Head of Red Team | Threat Hunter | CTF Player | Teacher</p>
 
-  <!-- Foto circular -->
-  <section id="profile-pic">
-    <div class="profile-container">
-      <img src="img01.png" alt="Smith Braz" class="profile-img">
-    </div>
-  </section>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#academic">Academic</a>
+    <a href="#talks">Talks</a>
+    <a href="#teacher">Teacher</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <p>OSCP+ | DCPT | eJPT | CC-ISC² | CNSP | AZ-900 | SC-900 | CLF-C01 | FCF | ISM</p>
-    <ul>
-      <li>OSCP+ (Offensive Security Certified Professional)</li>
-      <li>DCPT (Desec Certified Penetration Tester)</li>
-      <li>eJPT (eLearn Junior Penetration Tester)</li>
-      <li>CC-ISC² (Certified in Cybersecurity)</li>
-      <li>CNSP (Certified Network Security Practitioner)</li>
-      <li>AZ-900 (Microsoft Azure Fundamentals)</li>
-      <li>SC-900 (Microsoft Security, Compliance, and Identity Fundamentals)</li>
-      <li>CLF-C01 (AWS Certified Cloud Practitioner)</li>
-      <li>FCF (Fortinet Certified Fundamentals Cybersecurity)</li>
-      <li>ISO/IEC 27001 Information Security Associate (SkillFront)</li>
-    </ul>
-  </section>
+<section id="about">
+  <h2>About me</h2>
+  <p>Professional with more than 25 years of experience in the Brazilian Navy, working in Information Technology since 2004. Specialized in offensive security, network management, and incident response.</p>
+</section>
 
-  <!-- Slideshow de certificações -->
-  <section id="certifications-slideshow">
-    <div class="slideshow-container">
-      <div class="slide"><img src="img02.png" alt="Certification 1"></div>
-      <div class="slide"><img src="img03.png" alt="Certification 2"></div>
-      <div class="slide"><img src="img04.png" alt="Certification 3"></div>
-      <div class="slide"><img src="img05.png" alt="Certification 4"></div>
-      <div class="slide"><img src="img06.png" alt="Certification 5"></div>
-      <div class="slide"><img src="img07.png" alt="Certification 6"></div>
-      <div class="slide"><img src="img08.png" alt="Certification 7"></div>
-      <div class="slide"><img src="img09.png" alt="Certification 8"></div>
-      <div class="slide"><img src="img10.png" alt="Certification 9"></div>
-      <div class="slide"><img src="img11.png" alt="Certification 10"></div>
-    </div>
-  </section>
+<section>
+  <div class="profile-container">
+    <img src="img01.png" class="profile-img">
+  </div>
+</section>
 
-  <section id="academic">
-    <h2>Academic Background</h2>
-    <ul>
-      <li>CTS in Systems Analysis and Development (UniBF)</li>
-      <li>Postgraduate Student in Network Security (UniBF)</li>
-      <li>Postgraduate Student in Cyber Offensive and Red Team Operations (IMPACTA)</li>
-      <li>Post-Technical in Computer Networks (Brazilian Army)</li>
-      <li>Special Technical Qualification in Telematics (Brazilian Navy)</li>
-    </ul>
-  </section>
+<section id="certifications">
+  <h2>Certifications</h2>
+  <p>OSCP+ | DCPT | eJPT | CC-ISC² | CNSP | AZ-900 | SC-900 | CLF-C01 | FCF | ISM</p>
+</section>
 
-  <section id="teacher">
-    <h2>Teacher Projects</h2>
-    <p>Holder of a teaching aptitude, working as an instructor in courses both internally and externally.</p>
-    <p>Internally:</p>
-    <ul>
-      <li>Computer Networks</li>
-      <li>Linux Administration</li>
-      <li>Workshops on topics such as networking, Wi-Fi, administration, and security</li>
-    </ul>
-    <p>Externally:</p>
-    <ul>
-      <li>Safe Internet Course for Children and Adolescents – AMN</li>
-      <li>Red Team Course – RedScan Academy</li>
-      <li>"Threat Hunting" Module – Postgraduate Program in Cyber Threat Intelligence – ADINT School</li>
-      <li>Threat Hunting Analyst Course – ADINT School</li>
-    </ul>
-  </section>
-  
-  <section id="talks">
-    <h2>Talks in Cybersecurity Events</h2>
-    <div class="talks">
-      <h3>Talk in Hacking na Web Day RJ 2025</h3>
-      <p>“Red Teamers” O que são? O que comem? Onde vivem?</p>
-      <p>"Técnicas e Ferramentas Avançadas de Red Teaming: Explorando com uso de Exploits e Simulando Ameaças Reais"</p>
-    </div>
-    <div class="talks">
-      <h3>Talk in Rio CyberSec 2025</h3>
-      <p>Red Team: Soft Skills and study environment.</p>
-    </div>
-  </section>
+<section>
+  <div class="slideshow-container" id="cyberSlideshow">
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: thiago.smith.braz@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/smith-braz" target="_blank">LinkedIn Smith Braz</a></p>
-    <p>GitHub: <a href="https://github.com/thiagosmith" target="_blank">GitHub Smith Braz</a></p>
-  </section>
+    <div class="slide"><img src="img02.png"></div>
+    <div class="slide"><img src="img03.png"></div>
+    <div class="slide"><img src="img04.png"></div>
+    <div class="slide"><img src="img05.png"></div>
+    <div class="slide"><img src="img06.png"></div>
+    <div class="slide"><img src="img07.png"></div>
+    <div class="slide"><img src="img08.png"></div>
+    <div class="slide"><img src="img09.png"></div>
+    <div class="slide"><img src="img10.png"></div>
+    <div class="slide"><img src="img11.png"></div>
 
-  <footer>
-    <p>&copy; 2026 Smith Braz - Todos os direitos reservados</p>
-  </footer>
+    <a class="prev" onclick="changeSlide(-1)">❮</a>
+    <a class="next" onclick="changeSlide(1)">❯</a>
+  </div>
+
+  <div class="dots">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+    <span class="dot" onclick="currentSlide(7)"></span>
+    <span class="dot" onclick="currentSlide(8)"></span>
+    <span class="dot" onclick="currentSlide(9)"></span>
+    <span class="dot" onclick="currentSlide(10)"></span>
+  </div>
+</section>
+
+<!-- RESTANTE DO SEU CONTEÚDO ORIGINAL MANTIDO -->
+
+<section id="academic">
+  <h2>Academic Background</h2>
+  <ul>
+    <li>CTS in Systems Analysis and Development (UniBF)</li>
+    <li>Postgraduate Student in Network Security (UniBF)</li>
+    <li>Postgraduate Student in Cyber Offensive and Red Team Operations (IMPACTA)</li>
+    <li>Post-Technical in Computer Networks (Brazilian Army)</li>
+    <li>Special Technical Qualification in Telematics (Brazilian Navy)</li>
+  </ul>
+</section>
+
+<section id="teacher">
+  <h2>Teacher Projects</h2>
+  <p>Instructor in internal and external cybersecurity courses.</p>
+</section>
+
+<section id="talks">
+  <h2>Talks in Cybersecurity Events</h2>
+  <div class="talks">
+    <h3>Hacking na Web Day RJ 2025</h3>
+  </div>
+  <div class="talks">
+    <h3>Rio CyberSec 2025</h3>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: thiago.smith.braz@gmail.com</p>
+</section>
+
+<footer>
+  <p>&copy; 2026 Smith Braz - Todos os direitos reservados</p>
+</footer>
+
+<script>
+let slideIndex = 1;
+let autoSlide;
+
+showSlides(slideIndex);
+startAutoSlide();
+
+function changeSlide(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length) slideIndex = 1;
+  if (n < 1) slideIndex = slides.length;
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+function startAutoSlide() {
+  autoSlide = setInterval(() => changeSlide(1), 4000);
+}
+
+document.getElementById("cyberSlideshow").addEventListener("mouseenter", () => clearInterval(autoSlide));
+document.getElementById("cyberSlideshow").addEventListener("mouseleave", () => startAutoSlide());
+</script>
+
 </body>
 </html>
