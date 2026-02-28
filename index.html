@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio - Smith Braz</title>
+  <title>Smith Braz</title>
   <style>
     body {
       font-family: 'Consolas', 'Courier New', monospace;
@@ -67,6 +67,24 @@
     a:hover {
       color: #ff0000; /* vermelho ao passar o mouse */
     }
+    /* Estilo da foto circular */
+    .profile-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ff0000;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+    }
   </style>
 </head>
 <body>
@@ -86,6 +104,13 @@
   <section id="about">
     <h2>About me</h2>
     <p>Professional with more than 25 years of experience in the Brazilian Navy, working in Information Technology since 2004. Specialized in offensive security, network management, and incident response, with internationally recognized certifications.</p>
+  </section>
+
+  <!-- Foto circular -->
+  <section id="profile-pic">
+    <div class="profile-container">
+      <img src="img01.png" alt="Smith Braz" class="profile-img">
+    </div>
   </section>
 
   <section id="certifications">
